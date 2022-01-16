@@ -1,0 +1,18 @@
+Python SQL Indent Tool
+
+< Installation >
+# cd lib/sqlparse-master
+# python setup.py install
+
+< ERROR >
+1) No module named setuptools
+- # cd lib/setuptools-18.2
+- # python setup.py install
+
+2) No module named argparse
+# cd lib/argparse-1.4.0
+# python setup.py install
+
+3) importlib module not found
+# cd lib/mportlib-1.0.1
+# python setup.py install
