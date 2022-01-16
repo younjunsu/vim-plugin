@@ -1,6 +1,6 @@
-function! s:sqlfmt() abort
+function! s:tbsqlfmt() abort
   call setqflist([])
-  let cmd = get(g:, 'sqlfmt_program', 'sqlformat -r -k upper -o %s -')
+  let cmd = get(g:, 'tbsqlfmt_program', 'sqlformat -r -k upper -o %s -')
   let tmpfile = ''
   if stridx(cmd, '%s') > -1
     let tmpfile = tempname()
@@ -26,6 +26,6 @@ function! s:sqlfmt() abort
   call setpos('.', pos)
 endfunction
 
-nnoremap <silent> <Plug>(sqlfmt) :<c-u>call <SID>sqlfmt()<cr>
+nnoremap <silent> <Plug>(tbsqlfmt) :<c-u>call <SID>tbsqlfmt()<cr>
 
-command! -nargs=0 SQLFmt call <SID>sqlfmt()
+command! -nargs=0 TBfmt call <SID>tbsqlfmt()
