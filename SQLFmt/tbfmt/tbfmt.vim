@@ -1,7 +1,5 @@
-################################################
-################################################
 function! s:tbsqlfmt() abort
-	%s/\n//g
+	%s/\n/ /g
   call setqflist([])
   let cmd = get(g:, 'tbsqlfmt_program', 'sqlformat -r -k upper -o %s -')
   let tmpfile = ''
@@ -32,5 +30,3 @@ endfunction
 nnoremap <silent> <Plug>(tbsqlfmt) :<c-u>call <SID>tbsqlfmt()<cr>
 
 command! -nargs=0 Tbfmt call <SID>tbsqlfmt()\
-################################################
-################################################
