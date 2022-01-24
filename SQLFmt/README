@@ -1,18 +1,37 @@
-Python SQL Indent Tool
+#### STEP 1. Python setup
+## setuptools SETUP
+root# python Tbfmt/lib/setuptools-18.2/setup.py install
+## sqlparse-master SETUP
+root# python Tbfmt/lib/sqlparse-master/setup.py install
 
-< Installation >
-# cd lib/sqlparse-master
-# python setup.py install
+## ERROR
+## No module named argparse
+root# python Tbfmt/lib/argparse-1.4.0/setup.py install
+## importlib module not found
+root# python Tbfmt/lib/importlib-1.0.1/setup.py install
 
-< ERROR >
-1) No module named setuptools
-- # cd lib/setuptools-18.2
-- # python setup.py install
 
-2) No module named argparse
-# cd lib/argparse-1.4.0
-# python setup.py install
+#### STEP 2. VIM SCRIPT COPY
+## tbfmt.vim >> .vimrc
+tibero$ cat Tbfmt/tbfmt/tbfmt.vim >> $HOME/.vimrc
 
-3) importlib module not found
-# cd lib/mportlib-1.0.1
-# python setup.py install
+#### STEP 3. VIM EDITOR Configuration
+## Profile Add text
+tibero$ vi $HOME/.vimrc
+export EDITOR=vim
+
+#### STEP 4. tbSQL TEST
+tibero$ tbsql USER/PASSWORD
+SQL> SELECT * FROM junsu a, junsu b WHERE a.col1=b.col2 AND a.col2 = '2022’
+   2   
+SQL> ed
+
+## VIM EDITOR MODE
+SELECT * FROM junsu a, junsu b WHERE a.col1=b.col2 AND a.col2 = '2022’
+/
+## VIM COMMAND MODE :Tbfmt
+SELECT * 
+FROM junsu a,
+     junsu b
+WHERE a.col1=b.col2
+  AND a.col2 = '2022’ /
